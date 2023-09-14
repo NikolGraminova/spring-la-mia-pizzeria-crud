@@ -12,6 +12,15 @@
 <body>
 <h1>Pizza list</h1>
 
+<div class="card" style="width: 18rem;">
+    <!--    <img src="..." class="card-img-top" alt="...">-->
+    <div class="card-body" th:each="pizza : ${pizzas}">
+        <h5 class="card-title" th:text="${pizza.name}">name</h5>
+        <p class="card-text" th:text="${pizza.description}">desc</p>
+        <p class="btn btn-primary" th:text="${pizza.price}">pr</p>
+    </div>
+</div>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
