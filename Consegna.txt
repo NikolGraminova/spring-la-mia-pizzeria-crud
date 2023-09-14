@@ -1,0 +1,20 @@
+nome repo: spring-la-mia-pizzeria-crud
+Dobbiamo realizzare un’applicazione web che ci aiuti a gestire la nostra pizzeria.
+Creiamo il progetto con Spring Initializr aggiungendo le dipendenze:
+Spring Web
+Thymeleaf
+Spring JPA
+MySQL Driver
+DevTools (opzionale)
+
+Abbiamo bisogno di creare la prima pagina (index) dove mostriamo tutte le pizze che prepariamo.
+Una pizza avrà le seguenti informazioni :
+un nome
+una descrizione
+un prezzo
+
+Creaimo il database, repository e l’entity per gestire le pizze.
+Implementiamo quindi il controller con il metodo index che restituisce una view per mostrare l’elenco delle pizze caricate dal database (possiamo creare una table, un elenco o una card gallery con bootstrap o una qualche grafica a nostro piacimento che mostri questo elenco...un po’ di creatività se vogliamo!)
+L’elenco potrebbe essere vuoto : in quel caso dobbiamo mostrare un messaggio che indichi all’utente che non ci sono pizze presenti nella nostra applicazione.
+
+BONUS: aggiungere alla pizza un attributo foto di tipo String che contiene l’url dell’immagine (ad es https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg/260px-Eq_it-na_pizza-margherita_sep2005_sml.jpg) e mostrare anche l’immagine nella galleria delle pizze
