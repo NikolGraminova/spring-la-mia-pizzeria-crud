@@ -12,13 +12,19 @@
 <body class="text-center bg-warning">
 <h1 class="mt-5">PIZZA LIST</h1>
 <div class="container d-flex flex-row justify-content-center">
-    <div class="card m-5 bg-success-subtle" style="width: 18rem;" th:each="pizza : ${pizzas}">
+    <div class="card m-5 border border-black" style="width: 18rem;" th:if="${pizzas.size>0}"
+         th:each="pizza : ${pizzas}">
         <div class="card-body">
             <img class="card-img-top mb-3" th:src="@{'/img/' + ${pizza.id} + '.png'}"/>
-            <h5 class="card-title" th:text="${pizza.name}"></h5>
-            <p class="card-text" th:text="${pizza.description}"></p>
-            <p class="btn btn-warning mt-3" th:text="|€ ${pizza.price}|"></p>
+            <div class="bg-warning p-1 border border-black">
+                <h5 class="card-title" th:text="${pizza.name}"></h5>
+                <p class="card-text" th:text="${pizza.description}"></p>
+            </div>
+            <p class="btn btn-warning mt-3 border-black" th:text="|€ ${pizza.price}|"></p>
         </div>
+    </div>
+    <div th:unless="${pizzas.size>0}">
+        <h4>THE LIST IS EMPTY</h4>
     </div>
 </div>
 </body>
