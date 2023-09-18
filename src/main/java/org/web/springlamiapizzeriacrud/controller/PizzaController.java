@@ -25,7 +25,7 @@ public class PizzaController {
     public String index(Model model) {
         List<Pizza> pizzaList = pizzaRepository.findAll();
         model.addAttribute("pizzas", pizzaList);
-        return "list";
+        return "pizzas/list";
     }
 
     @GetMapping("/show/{pizzaId}")
@@ -34,10 +34,9 @@ public class PizzaController {
         if (pizzaOptional.isPresent()) {
             Pizza pizzaFound = pizzaOptional.get();
             model.addAttribute("pizza", pizzaFound);
-            return "details";
+            return "pizzas/details";
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-
     }
 }
