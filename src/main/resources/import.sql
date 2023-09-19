@@ -1,3 +1,5 @@
-INSERT INTO pizzas (name, description, price) VALUES('Margherita', 'Pomodoro e mozzarella', 5.99);
-INSERT INTO pizzas (name, description, price) VALUES('Diavola', 'Salame piccante', 7.50);
-INSERT INTO pizzas (name, description, price) VALUES('Cotto e mozzarella', 'Prosciutto cotto e mozzarella', 6.99);
+INSERT INTO pizzas (name, description, price, img) VALUES('Margherita', 'Tomato sauce and mozzarella cheese', 5.99, 'https://res.cloudinary.com/glovoapp/q_auto,f_auto/Products/q5snb337rc7cfpakg1bp');
+
+INSERT INTO pizzas (name, description, price, img) VALUES('Diavola', 'Pepperoni pizza', 7.50,'https://res.cloudinary.com/glovoapp/q_auto,f_auto/Products/aeahkrzg4svd0pccpbtx');
+
+INSERT INTO pizzas (name, description, price, img) VALUES('Marinara', 'Tomatoes, oregano and anchovies', 6.99,'https://res.cloudinary.com/glovoapp/q_auto,f_auto/Products/hjmvodd5gp6mzjkh9ixo');

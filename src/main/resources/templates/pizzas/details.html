@@ -17,7 +17,7 @@
 <div class="container d-flex flex-row justify-content-center">
     <div class="card m-5 border border-black" style="width: 18rem;">
         <div class="card-body">
-            <img class="card-img-top mb-3" th:src="@{'/img/' + ${pizza.id} + '.png'}"/>
+            <img class="card-img-top mb-3" th:src="${pizza.img}"/>
             <div class="bg-warning p-1 border border-black w-75 pt-1 m-auto">
                 <h5 class="card-title" th:text="${pizza.name}"></h5>
                 <p class="card-text" th:text="${pizza.description}"></p>

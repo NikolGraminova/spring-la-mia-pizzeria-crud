@@ -18,7 +18,7 @@
     <div class="card m-5 border border-black" style="width: 18rem;" th:if="${pizzas.size>0}"
          th:each="pizza : ${pizzas}">
         <div class="card-body">
-            <img class="card-img-top mb-3" th:src="@{'/img/' + ${pizza.id} + '.png'}"/>
+            <img class="card-img-top mb-3" th:src="${pizza.img}"/>
             <div class="bg-warning w-75 pt-1 m-auto border border-black">
                 <h5 class="card-title" th:text="${pizza.name}"></h5>
             </div>
