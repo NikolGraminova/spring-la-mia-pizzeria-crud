@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/pizzeria")
+@RequestMapping("/list")
 public class PizzaController {
 
     @Autowired
@@ -39,4 +39,10 @@ public class PizzaController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping("/create")
+    public String create() {
+        return "pizzas/create";
+    }
+
 }
