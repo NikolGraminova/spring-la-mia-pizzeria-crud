@@ -1,5 +1,6 @@
 package org.web.springlamiapizzeriacrud.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -46,8 +47,10 @@ public class PizzaController {
     }
 
     @PostMapping("/create")
-    public String doCreate(@ModelAttribute("pizza") Pizza formPizza, BindingResult bindingResult) {
-
+    public String doCreate(@Valid @ModelAttribute("pizza") Pizza formPizza, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "pizzas/create";
+        }
         pizzaRepository.save(formPizza);
         return "redirect:/list";
     }
