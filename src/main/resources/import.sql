@@ -7,5 +7,5 @@ INSERT INTO pizzas (name, description, price, img) VALUES('Marinara', 'Tomatoes,
 --Form test example:
 --Salmon
 --Pizza with salmon
---7.99
+--8.99
 --https://res.cloudinary.com/glovoapp/q_auto,f_auto/Products/nqx99z88hcvtsdpxqrq6

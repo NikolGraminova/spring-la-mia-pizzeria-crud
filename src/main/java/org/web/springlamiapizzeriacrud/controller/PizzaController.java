@@ -54,5 +54,4 @@ public class PizzaController {
         pizzaRepository.save(formPizza);
         return "redirect:/list";
     }
-
 }
