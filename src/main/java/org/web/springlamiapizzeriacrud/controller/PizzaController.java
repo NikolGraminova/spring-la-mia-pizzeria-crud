@@ -54,4 +54,11 @@ public class PizzaController {
         pizzaRepository.save(formPizza);
         return "redirect:/list";
     }
+
+    @GetMapping("/search")
+    public String search(@RequestParam("q") String searchString, Model model) {
+        List<Pizza> filteredPizzaList = pizzaRepository.findByDescriptionContaining(searchString);
+        model.addAttribute("pizzas", filteredPizzaList);
+        return "pizzas/list";
+    }
 }
