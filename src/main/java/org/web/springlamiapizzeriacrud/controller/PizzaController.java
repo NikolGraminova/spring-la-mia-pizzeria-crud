@@ -36,8 +36,15 @@ public class PizzaController {
             model.addAttribute("pizza", pizzaFound);
             return "pizzas/details";
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "id " + id + "not found");
         }
+    }
+
+    @GetMapping("/search")
+    public String search(@RequestParam("q") String searchString, Model model) {
+        List<Pizza> filteredPizzaList = pizzaRepository.findByDescriptionContaining(searchString);
+        model.addAttribute("pizzas", filteredPizzaList);
+        return "pizzas/list";
     }
 
     @GetMapping("/create")
@@ -55,10 +62,31 @@ public class PizzaController {
         return "redirect:/list";
     }
 
-    @GetMapping("/search")
-    public String search(@RequestParam("q") String searchString, Model model) {
-        List<Pizza> filteredPizzaList = pizzaRepository.findByDescriptionContaining(searchString);
-        model.addAttribute("pizzas", filteredPizzaList);
-        return "pizzas/list";
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable("id") Integer id, Model model) {
+        Optional<Pizza> pizzaOptional = pizzaRepository.findById(id);
+        if (pizzaOptional.isPresent()) {
+            model.addAttribute("pizza", pizzaOptional.get());
+            return "pizzas/edit";
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "id " + id + "not found");
+        }
     }
+
+    @PostMapping("/edit/{id}")
+    public String doEdit(@PathVariable("id") Integer id, @Valid @ModelAttribute("pizza") Pizza editedPizza, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "pizzas/edit";
+        } else {
+            pizzaRepository.save(editedPizza);
+            return "redirect:/list";
+        }
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Integer id) {
+        pizzaRepository.deleteById(id);
+        return "redirect:/list";
+    }
+
 }

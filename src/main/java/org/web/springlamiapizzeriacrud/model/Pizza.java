@@ -11,28 +11,28 @@ import java.math.BigDecimal;
 public class Pizza {
 
     // fields
+    // fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank(message = "this field can't be empty")
-    @Size(message = "this field can't contain more than 20 characters", max = 20)
+    @NotBlank(message = "This field can't be empty")
+    @Size(message = "Name must be between 5 and 20 characters", min = 5, max = 20)
     private String name;
 
-    @NotBlank(message = "this field can't be empty")
-    @Size(message = "this field can't contain more than 100 characters", max = 100)
+    @NotBlank(message = "This field can't be empty")
+    @Size(message = "Description must be between 10 and 100 characters", min = 10, max = 100)
     private String description;
 
-    @NotNull(message = "this field can't be empty")
-    @DecimalMin(value = "0.99", message = "price must be between 0.99 and 30.00")
-    @DecimalMax(value = "99.00", message = "price must be between 0.99 and 99.00")
+    @NotNull(message = "This field can't be empty")
+    @DecimalMin(value = "0.99", message = "Price must be between 0.99 and 30.00")
+    @DecimalMax(value = "99.00", message = "Price must be between 0.99 and 99.00")
     @Column(scale = 2)
     private BigDecimal price;
 
-    @NotBlank(message = "this field can't be empty")
-    @URL(message = "this field must contain a valid URL")
+    @NotBlank(message = "This field can't be empty")
+    @URL(message = "This field must contain a valid URL")
     private String img;
-
 
     // getters and setters
     public Integer getId() {
