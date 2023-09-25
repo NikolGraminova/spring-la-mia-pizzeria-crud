@@ -7,7 +7,6 @@
 <!--navbar-->
 <nav th:replace="fragments/navbar :: navbar(area = 'list')"></nav>
 
-
 <!--header-->
 <h1 class="mt-5">PIZZA LIST</h1>
 
@@ -25,10 +24,16 @@
                 <i class="fa-solid fa-magnifying-glass"></i></a>
             <a class="btn btn-warning mt-3 border-black small" th:href="@{/list/edit/{id}(id=${pizza.id})}">
                 <i class="fa-solid fa-pen-to-square"></i></a>
-            <a class="btn btn-warning mt-3 border-black small" th:href="@{/list/delete/{id}(id=${pizza.id})}">
+            <a class="btn btn-warning mt-3 border-black small" th:href="@{/list/delete/{id}(id=${pizza.id})}"
+               onclick="return confirm('Delete pizza?');">
                 <i class="fa-solid fa-trash"></i></a>
         </div>
     </div>
+</div>
+
+<!--if empty-->
+<div th:if="${pizzas.size() <= 0}">
+    <h2>The list is empty</h2>
 </div>
 
 </body>

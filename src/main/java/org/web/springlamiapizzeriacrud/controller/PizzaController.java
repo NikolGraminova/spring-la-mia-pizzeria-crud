@@ -42,8 +42,8 @@ public class PizzaController {
 
     @GetMapping("/search")
     public String search(@RequestParam("q") String searchString, Model model) {
-        List<Pizza> filteredPizzaList = pizzaRepository.findByDescriptionContaining(searchString);
-        model.addAttribute("pizzas", filteredPizzaList);
+        List<Pizza> pizzaList = pizzaRepository.findByDescriptionContaining(searchString);
+        model.addAttribute("pizzas", pizzaList);
         return "pizzas/list";
     }
 
@@ -88,5 +88,4 @@ public class PizzaController {
         pizzaRepository.deleteById(id);
         return "redirect:/list";
     }
-
 }
